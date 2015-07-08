@@ -1,0 +1,17 @@
+app:
+  build: ./app
+  command: npm start
+  ports:
+    - 49200:3000
+
+service:
+  build: ./service/src/github.com/orieken/go-rest
+  command: /go/bin/go-rest
+  ports:
+    - 49201:7000
+
+  links:
+    - db
+
+db:
+  image: mongo:3.0.4

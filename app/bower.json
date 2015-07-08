@@ -1,0 +1,23 @@
+{
+  "name": "dock_app",
+  "version": "0.0.1",
+  "authors": [
+    "Oscar Rieken <oriekenjr@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-bootstrap": "~0.13.0",
+    "angular-mocks": "~1.4.1",
+    "angular-resource": "~1.4.1",
+    "angular-route": "~1.4.1",
+    "angular": "~1.4.1",
+    "bootstrap": "~3.3.5"
+  }
+}
