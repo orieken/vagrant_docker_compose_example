@@ -5,12 +5,15 @@ app:
     - service
   ports:
     - 49200:3000
+
 service:
+  restart: always
   build: ./service/src/github.com/orieken/go-rest
   command: /go/bin/go-rest
   links:
-    - db
+    - database
   ports:
     - 49201:7000
-db:
+database:
   image: mongo:3.0.4
+  command: mongod --smallfiles --quiet 
