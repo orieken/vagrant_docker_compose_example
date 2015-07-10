@@ -15,17 +15,17 @@ import (
 func main() {
 	r := httprouter.New()
 
-	uc := controllers.NewUserController(getSession())
+	uc := controllers.NewCarController(getSession())
 
 	r.GET("/test", func(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 		fmt.Fprint(w, "Winning!\n")
 	})
 
-	r.GET("/user/:id", uc.GetUser)
+	r.GET("/car/:id", uc.GetCar)
 
-	r.POST("/user", uc.CreateUser)
+	r.POST("/car", uc.CreateCar)
 
-	r.DELETE("/user/:id", uc.DeleteUser)
+	r.DELETE("/car/:id", uc.DeleteCar)
 
 	http.ListenAndServe("localhost:7000", r)
 }
