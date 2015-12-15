@@ -46,13 +46,13 @@ vagrant plugin install vagrant-docker-compose
 
 ## Running
 
-Start boot2docker
+* Start boot2docker
 
 ```
 boot2docker up
 ```
 
-Set all of the output
+* Set all of the output
 
 ```
 export DOCKER_HOST=
@@ -60,19 +60,24 @@ export DOCKER_CERT_PATH=
 export DOCKER_TLS_VERIFY=
 ```
 
-run 
+* run
 
 ```
 docker-compose build
 docker-compose up
 ```
 
-get the ip of boot2docker
+* get the ip of boot2docker
 
 ```
 boot2docker ip
 ```
 
-check app 
-boot2docker ip the port we opened on the container
+* check app
+* boot2docker ip the port we opened on the container
 
+
+## GO DEPS
+
+* http://labix.org/mgo
+* https://godoc.org/github.com/julienschmidt/httprouter

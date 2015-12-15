@@ -1,19 +1,11 @@
-app:
-  build: ./app
-  command: npm start
-  links:
-    - service
-  ports:
-    - 49200:3000
-
 service:
-  restart: always
   build: ./service/src/github.com/orieken/go-rest
-  command: /go/bin/go-rest
   links:
     - database
   ports:
-    - 49201:7000
+    - "49200:49200"
+  restart: always
+
 database:
   image: mongo:3.0.4
-  command: mongod --smallfiles --quiet 
+  command: mongod --smallfiles --quiet

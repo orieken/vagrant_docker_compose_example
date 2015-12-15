@@ -21,6 +21,7 @@ func NewCarController(s *mgo.Session) *CarController {
 	return &CarController{s}
 }
 
+
 func (cc CarController) GetCar(w http.ResponseWriter, r *http.Request, p httprouter.Params) {
 	id := p.ByName("id")
 
@@ -43,7 +44,6 @@ func (cc CarController) GetCar(w http.ResponseWriter, r *http.Request, p httprou
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(200)
 	fmt.Fprintf(w, "%s", cj)
-
 }
 
 func (cc CarController) CreateCar(w http.ResponseWriter, r *http.Request, p httprouter.Params) {
@@ -53,7 +53,7 @@ func (cc CarController) CreateCar(w http.ResponseWriter, r *http.Request, p http
 
 	c.Id = bson.NewObjectId()
 
-	cc.session.DB("go_rest").C("users").Insert(c)
+	cc.session.DB("go_rest").C("cars").Insert(c)
 
 	cj, _ := json.Marshal(c)
 
@@ -72,7 +72,7 @@ func (cc CarController) DeleteCar(w http.ResponseWriter, r *http.Request, p http
 
 	oid := bson.ObjectIdHex(id)
 
-	if err := cc.session.DB("go_rest").C("users").RemoveId(oid); err != nil {
+	if err := cc.session.DB("go_rest").C("cars").RemoveId(oid); err != nil {
 		w.WriteHeader(404)
 		return
 	}
